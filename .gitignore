@@ -1,0 +1,13 @@
+bin
+
+# Linux
+
+*.o
+*.a
+*.so
+
+# Windows
+
+*.exe
+*.obj
+*.dll
