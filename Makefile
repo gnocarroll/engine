@@ -35,5 +35,5 @@ clean_dbg:
 
 .PHONY: clean_dev
 clean_dev:
-	rm $(shell python3 ls_ext.py --dir $(DEV_BIN) .o)
+	rm $(shell python3 scripts/ls_ext.py --dir $(DEV_BIN) .o)
 	rm $(DEV_BIN)/$(DEV_TARGET)
