@@ -1,10 +1,13 @@
-bin
-dbg_bin
-dev_bin
-
 *__pycache__
 
-# Linux
+# Suffixing my executables w/ this
+*_build
+
+# Mac
+
+*.DS_Store
+
+# Linux / Mac
 
 *.o
 *.a
