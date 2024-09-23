@@ -1,4 +1,5 @@
 CXX=g++
-CPPFLAGS=-g -std=c++26
+ALL_CPPFLAGS=-std=c++26 -g
 
-
+.PHONY: clean
+	rm -rf bin/*
