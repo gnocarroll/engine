@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-
 import argparse
 import os
 import sys
 
 
 parser = argparse.ArgumentParser(
-    prog="ls_w_ext",
+    prog=os.path.split(__file__)[1],
     description=(
         "write all filepaths ending in provided extension(s) in dir and all "
         "subdirs to stdout"
@@ -14,16 +12,17 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument(
-    "dir",
-    default=".",
-    help="dir to source files from",
-    required=False,
+    "ext",
+    help="file extension for paths to list",
+    nargs="+",
 )
 
 parser.add_argument(
-    "exts",
-    help="file extension(s) for paths to list",
-    nargs="+",
+    "-d",
+    "--dir",
+    default=".",
+    help="dir to source files from",
+    required=False,
 )
 
 args = parser.parse_args()
@@ -31,9 +30,11 @@ args = parser.parse_args()
 if not os.path.isdir(args.dir):
     sys.exit(f"Target dir {args.dir} not found or is not a dir")
 
-for ext in exts:
-    if len(ext) == 0 or ext[0] != ".":
-        sys.exit(f"Extension {ext} has length 0 or does not begin with '.'")
+for arg_ext in args.ext:
+    if len(arg_ext) == 0 or arg_ext[0] != ".":
+        sys.exit(
+            f"Extension {arg_ext} has length 0 or does not begin with '.'",
+        )
 
 
 def _listdir_paths(target_dir: str):
@@ -44,7 +45,7 @@ def _listdir_paths(target_dir: str):
 def _any_ext_match(filepath: str) -> bool:
     _, ext = os.path.splitext(filepath)
 
-    return any([ext == arg_ext for arg_ext in args.exts])
+    return any([ext == arg_ext for arg_ext in args.ext])
 
 
 def ls_w_ext(target_dir: str) -> None:
