@@ -7,7 +7,7 @@ ALL_CPPFLAGS=-std=gnu++2b -Wno-gnu-array-member-paren-init -I .
 DBG_CPPFLAGS:=$(ALL_CPPFLAGS) -g
 DEV_CPPFLAGS:=$(ALL_CPPFLAGS) -Ofast -march=native
 
-SRC_FILES:=$(shell python3 ls_ext.py --dir $(SRC) .cpp)
+SRC_FILES:=$(shell python3 scripts/ls_ext.py --dir $(SRC) .cpp)
 OBJECTS:=$(patsubst $(SRC)/%.cpp,%.o,$(SRC_FILES))
 
 DBG_BIN=dbg_bin
@@ -30,7 +30,7 @@ clean: clean_dbg clean_dev
 
 .PHONY: clean_dbg
 clean_dbg:
-	rm $(shell python3 ls_ext.py --dir $(DBG_BIN) .o)
+	rm $(shell python3 scripts/ls_ext.py --dir $(DBG_BIN) .o)
 	rm $(DBG_BIN)/$(DBG_TARGET)
 
 .PHONY: clean_dev
