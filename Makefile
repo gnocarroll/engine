@@ -1,6 +1,6 @@
 SRC=engine
 
-CXX=g++
+CXX=~/gcc14/bin/g++
 
 ALL_CPPFLAGS=-std=gnu++2b -Wno-gnu-array-member-paren-init -I .
 
