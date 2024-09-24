@@ -4,13 +4,17 @@
 
 
 int main() {
-	V3 v(0.0f, 1.0f, 2.0f);
-	
-  v *= 2;
+	V3 v1;
+  V3 v2;
 
-  for (const auto& el : v) {
-    std::cout << el << '\n';
+  for (auto& el : v1) {
+    std::cin >> el;
   }
+  for (auto& el : v2) {
+    std::cin >> el;
+  }
+
+  std::cout << v1 * v2 << '\n';
 
   return 0;
 }
