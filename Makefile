@@ -1,6 +1,7 @@
 SRC=engine
 
-CXX=~/gcc14/bin/g++
+CXX=g++
+CC=gcc
 
 ALL_CPPFLAGS=-std=gnu++2b -Wno-gnu-array-member-paren-init -I .
 
@@ -28,12 +29,12 @@ $(DEV_OBJECTS): $(DEV_BIN)/%.o: $(SRC)/%.cpp
 .PHONY: clean
 clean: clean_dbg clean_dev
 
-.PHONY: clean_dbg
-clean_dbg:
+.PHONY: dbg_clean
+dbg_clean:
 	rm $(shell python3 scripts/ls_ext.py --dir $(DBG_BIN) .o)
 	rm $(DBG_BIN)/$(DBG_TARGET)
 
-.PHONY: clean_dev
-clean_dev:
+.PHONY: dev_clean
+dev_clean:
 	rm $(shell python3 scripts/ls_ext.py --dir $(DEV_BIN) .o)
 	rm $(DEV_BIN)/$(DEV_TARGET)

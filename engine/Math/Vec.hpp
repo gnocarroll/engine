@@ -147,7 +147,7 @@ template<typename T, size_t count>
 std::istream& operator>>(std::istream& istr, Vec<T, count>& v);
 
 template<typename T, size_t count>
-std::ostream& operator<<(std::ostream& ostr, Vec<T, count>& v);
+std::ostream& operator<<(std::ostream& ostr, const Vec<T, count>& v);
 
 // typedefs for vectors that are likely to be used frequently
 typedef Vec<> V3;
