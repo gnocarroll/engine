@@ -121,10 +121,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="engine\main.cpp" />
+    <ClCompile Include="engine\Math\Mat.cpp" />
     <ClCompile Include="engine\math\Utils.cpp" />
     <ClCompile Include="engine\math\Vec.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\Math\Mat.hpp" />
     <ClInclude Include="engine\math\Utils.hpp" />
     <ClInclude Include="engine\math\Vec.hpp" />
     <ClInclude Include="engine\MyIntDef.hpp" />
