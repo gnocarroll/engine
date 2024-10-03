@@ -24,10 +24,7 @@
     <ClCompile Include="engine\math\Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scripts\to_lower.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="scripts\to_upper.c">
+    <ClCompile Include="engine\Math\Mat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\math\Vec.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Math\Mat.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

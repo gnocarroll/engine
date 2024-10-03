@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <iostream>
 
-#include "MyIntDef.hpp"
+#include "engine/MyIntDef.hpp"
 
 template <typename T = float, size_t count = 3>
 struct Vec {
@@ -11,7 +11,7 @@ private:
 	T data[count];
 
 public:
-	constexpr Vec() : data{} {}
+	consteval Vec() : data{} {}
 
 	template <typename... Args>
 	constexpr Vec(Args... _data) : data{_data...} {}
@@ -25,12 +25,12 @@ public:
 		}
 	}
 
-	constexpr size_t size() { return count; }
+	consteval size_t size() { return count; }
 
 	constexpr T operator[](int idx) const { return data[idx]; };
 	constexpr T& operator[](int idx) { return data[idx]; };
 
-	// IO
+	// Stream IO
 	template<typename T, size_t count>
 	friend std::istream& operator>>(std::istream& istr, Vec<T, count>& v) {
 		for (T& el : v) {
