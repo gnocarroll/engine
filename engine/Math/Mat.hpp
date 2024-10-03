@@ -52,4 +52,4 @@ public:
 };
 
 typedef Mat<> M33;
-typedef Mat<float, 4, 4> M44;
+typedef Mat<float, 4> M44;
