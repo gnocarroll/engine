@@ -1,5 +1,6 @@
 .vs
 *x64
+vcpkg_installed
 
 *__pycache__
 *input.in

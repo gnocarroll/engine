@@ -75,6 +75,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -125,12 +128,17 @@
     <ClCompile Include="engine\Math\Mat.cpp" />
     <ClCompile Include="engine\math\Utils.cpp" />
     <ClCompile Include="engine\math\Vec.cpp" />
+    <ClCompile Include="engine\OS\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\Math\Mat.hpp" />
     <ClInclude Include="engine\math\Utils.hpp" />
     <ClInclude Include="engine\math\Vec.hpp" />
     <ClInclude Include="engine\MyIntDef.hpp" />
+    <ClInclude Include="engine\OS\Window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vcpkg.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
