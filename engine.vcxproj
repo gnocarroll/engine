@@ -128,14 +128,18 @@
     <ClCompile Include="engine\Math\Mat.cpp" />
     <ClCompile Include="engine\math\Utils.cpp" />
     <ClCompile Include="engine\math\Vec.cpp" />
+    <ClCompile Include="engine\OS\Subsystem.cpp" />
     <ClCompile Include="engine\OS\Window.cpp" />
+    <ClCompile Include="engine\Render\Render2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\Math\Mat.hpp" />
     <ClInclude Include="engine\math\Utils.hpp" />
     <ClInclude Include="engine\math\Vec.hpp" />
     <ClInclude Include="engine\MyIntDef.hpp" />
+    <ClInclude Include="engine\OS\Subsystem.hpp" />
     <ClInclude Include="engine\OS\Window.hpp" />
+    <ClInclude Include="engine\PrintError.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />

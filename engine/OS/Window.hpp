@@ -24,6 +24,10 @@ namespace OS {
 			return (windowPtr != nullptr);
 		}
 
+		void* GetWindowPtr() const {
+			return windowPtr;
+		}
+
 		const std::string& GetTitle() const {
 			return title;
 		}
