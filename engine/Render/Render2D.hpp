@@ -6,6 +6,9 @@ namespace Render {
 		const OS::Window& window;
 		void* renderPtr;
 
+		int outWidth;
+		int outHeight;
+
 	public:
 		// The renderer will render things to the provided window
 		Render2D(const OS::Window& _window);

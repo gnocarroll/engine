@@ -8,13 +8,18 @@
 #include "engine/PrintError.hpp"
 
 namespace Render {
-	Render2D::Render2D(const OS::Window& _window) : window(_window) {
+	Render2D::Render2D(const OS::Window& _window) : window(_window),
+		outWidth(0), outHeight(0) {
 		renderPtr = SDL_CreateRenderer(
 			static_cast<SDL_Window*>(window.GetWindowPtr()),
 			-1, // => use first rendering driver supporting requested flags
 			SDL_RENDERER_ACCELERATED);
 
-		if (!renderPtr) {
+		if (renderPtr) {
+			SDL_GetRendererOutputSize(static_cast<SDL_Renderer*>(renderPtr),
+				&outWidth, &outHeight);
+		}
+		else {
 			perrorSDL(__func__);
 		}
 	}
