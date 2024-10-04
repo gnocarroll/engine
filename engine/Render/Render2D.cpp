@@ -4,6 +4,7 @@
 
 #include <SDL2/SDL_render.h>
 
+#include "engine/Util.hpp"
 #include "engine/OS/Window.hpp"
 #include "engine/PrintError.hpp"
 
@@ -27,7 +28,7 @@ namespace Render {
 	}
 
 	Render2D::~Render2D() {
-		SDL_DestroyRenderer(static_cast<SDL_Renderer*>(renderPtr));
+		SDL_DestroyRenderer(RCAST(renderPtr));
 	}
 
 	int Render2D::UpdateDim() {
@@ -35,7 +36,7 @@ namespace Render {
 		int h = 0;
 
 		if (SDL_GetRendererOutputSize(
-			static_cast<SDL_Renderer*>(renderPtr), &w, &h) < 0) {
+			RCAST(renderPtr), &w, &h) < 0) {
 			
 			perrorSDL(__func__);
 			return -1;
@@ -47,13 +48,18 @@ namespace Render {
 		return 0;
 	}
 
-	int Render2D::DrawLines(V2* points, int count) {
-		if (SDL_RenderDrawLinesF(RCAST(renderPtr),
-			POINT2DCAST(points), count) == 0) {
-			return 0;
-		}
+	int Render2D::Clear() {
+		return Util::SDLWrapper<SDL_RenderClear>(RCAST(renderPtr));
+	}
+	void Render2D::ToOutput() {
+		SDL_RenderPresent(RCAST(renderPtr));
+	}
 
-		perrorSDL(__func__);
-		return -1;
+	int Render2D::SetDrawColor(ui8 r, ui8 g, ui8 b, ui8 a) {
+		return Util::SDLWrapper<SDL_SetRenderDrawColor>(RCAST(renderPtr), r, g, b, a);
+	}
+
+	int Render2D::DrawLines(V2* points, int count) {
+		return Util::SDLWrapper<SDL_RenderDrawLinesF>(RCAST(renderPtr), POINT2DCAST(points), count);
 	}
 }

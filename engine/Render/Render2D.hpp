@@ -20,8 +20,12 @@ namespace Render {
 
 		~Render2D();
 
+		int Clear();
+		void ToOutput();
+
 		int UpdateDim();
 
+		int SetDrawColor(ui8 r, ui8 g, ui8 b, ui8 a);
 		int DrawLines(V2* points, int count);
 
 		bool IsValid() const {
