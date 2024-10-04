@@ -8,6 +8,10 @@
 int main() {
 	std::ios_base::sync_with_stdio(false);
 
+	V3 example(0.0f, 1.0f, 2.0f);
+
+	std::cout << example << '\n';
+
 	// Setup subsystems
 	if (OS::Subsys::Init(OS::Subsys::Video) < 0) {
 		return 1;

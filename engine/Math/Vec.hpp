@@ -171,6 +171,10 @@ constexpr Vec<T, 3> operator^(const Vec<T, 3>& v1, const Vec<T, 3>& v2) {
 }
 
 // typedefs for vectors that are likely to be used frequently
+typedef Vec<float, 2> V2;
+typedef Vec<i32, 2> V2i;
+typedef Vec<int, 2> V2int;
+
 typedef Vec<> V3;
 typedef Vec<i32> V3i;
 typedef Vec<ui32> V3ui;

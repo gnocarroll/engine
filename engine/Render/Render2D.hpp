@@ -1,3 +1,7 @@
+#pragma once
+
+#include "engine/Math/Vec.hpp"
+#include "engine/MyIntDef.hpp"
 #include "engine/OS/Window.hpp"
 
 namespace Render {
@@ -6,9 +10,8 @@ namespace Render {
 		const OS::Window& window;
 		void* renderPtr;
 
-		int outWidth;
-		int outHeight;
-
+		i32 outWidth;
+		i32 outHeight;
 	public:
 		// The renderer will render things to the provided window
 		Render2D(const OS::Window& _window);
@@ -17,8 +20,23 @@ namespace Render {
 
 		~Render2D();
 
-		bool IsValid() {
+		int UpdateDim();
+
+		int DrawLines(V2* points, int count);
+
+		bool IsValid() const {
 			return (renderPtr != nullptr);
+		}
+
+		i32 GetWidth() const {
+			return outWidth;
+		}
+		i32 GetHeight() const {
+			return outHeight;
+		}
+
+		V2i GetDim() const {
+			return V2i(outWidth, outHeight);
 		}
 	};
 }

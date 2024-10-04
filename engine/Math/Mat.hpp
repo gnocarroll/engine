@@ -31,7 +31,7 @@ public:
 
 	// Stream IO
 	template<typename T, size_t nRows, size_t nCols>
-	friend std::istream& operator>>(std::istream& istr, Mat<T, nRows, nCols>& mat) {
+	static inline friend std::istream& operator>>(std::istream& istr, Mat<T, nRows, nCols>& mat) {
 		for (auto& row : mat) {
 			istr >> row;
 		}
@@ -40,7 +40,7 @@ public:
 	}
 
 	template<typename T, size_t nRows, size_t nCols>
-	friend std::ostream& operator<<(std::ostream& ostr, const Mat<T, nRows, nCols>& mat) {
+	static inline friend std::ostream& operator<<(std::ostream& ostr, const Mat<T, nRows, nCols>& mat) {
 		ostr << mat[0];
 
 		for (auto iter = mat.begin() + 1; iter < mat.end(); iter++) {

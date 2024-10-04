@@ -12,3 +12,7 @@ inline void perrorSDL(const std::string& s) {
 }
 
 #endif
+
+inline void perrorMsg(const std::string& s, const std::string& msg) {
+	std::cerr << s << ": " << msg << '\n';
+}

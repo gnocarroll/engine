@@ -140,6 +140,7 @@
     <ClInclude Include="engine\OS\Subsystem.hpp" />
     <ClInclude Include="engine\OS\Window.hpp" />
     <ClInclude Include="engine\PrintError.hpp" />
+    <ClInclude Include="engine\Render\Render2D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />

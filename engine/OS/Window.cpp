@@ -5,10 +5,11 @@
 #include "engine/PrintError.hpp"
 
 namespace OS {
-	Window::Window(const std::string& _title, int w, int h) : title(_title),
+	Window::Window(const std::string& _title, i32 w, i32 h) : title(_title),
 		width(w), height(h), isFullscreen(false) {
 		windowPtr = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED,
-			SDL_WINDOWPOS_CENTERED, width, height, 0);
+			SDL_WINDOWPOS_CENTERED,
+			static_cast<int>(width), static_cast<int>(height), 0);
 
 		if (!windowPtr) {
 			perrorSDL(__func__);
@@ -20,8 +21,7 @@ namespace OS {
 			SDL_WINDOW_FULLSCREEN_DESKTOP);
 
 		if (windowPtr) {
-			SDL_GetWindowSize(static_cast<SDL_Window*>(windowPtr),
-				&width, &height);
+			UpdateDim();
 		}
 		else {
 			perrorSDL(__func__);
@@ -32,4 +32,21 @@ namespace OS {
 		SDL_DestroyWindow(static_cast<SDL_Window*>(windowPtr));
 		windowPtr = nullptr;
 	}
+
+	void Window::UpdateDim() {
+		if (windowPtr) {
+			int w = 0;
+			int h = 0;
+
+			SDL_GetWindowSize(static_cast<SDL_Window*>(windowPtr),
+				&w, &h);
+
+			width = static_cast<i32>(w);
+			height = static_cast<i32>(h);
+		}
+		else {
+			perrorMsg(__func__, "windowPtr is nullptr");
+		}
+	}
+
 }
