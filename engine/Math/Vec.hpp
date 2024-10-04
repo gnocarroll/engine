@@ -5,6 +5,11 @@
 
 #include "engine/MyIntDef.hpp"
 
+/*
+ *	Template vector class: can use different types and be of different
+ *  lengths. Reminiscient of std::arr.
+ */
+
 template <typename T = float, size_t count = 3>
 struct Vec {
 private:
@@ -29,27 +34,6 @@ public:
 
 	constexpr T operator[](int idx) const { return data[idx]; };
 	constexpr T& operator[](int idx) { return data[idx]; };
-
-	// Stream IO
-	template<typename T, size_t count>
-	friend std::istream& operator>>(std::istream& istr, Vec<T, count>& v) {
-		for (T& el : v) {
-			istr >> el;
-		}
-
-		return istr;
-	}
-
-	template<typename T, size_t count>
-	friend std::ostream& operator<<(std::ostream& ostr, const Vec<T, count>& v) {
-		ostr << v[0];
-
-		for (auto iter = v.begin() + 1; iter < v.end(); iter++) {
-			ostr << ' ' << (*iter);
-		}
-
-		return ostr;
-	}
 
 	// Unary +/- (not much of a point in + but whatever)
 	constexpr Vec<T, count> operator+() { return *this; }
@@ -168,6 +152,27 @@ constexpr Vec<T, 3> operator^(const Vec<T, 3>& v1, const Vec<T, 3>& v2) {
 	return Vec<T, 3>(v1[1] * v2[2] - v1[2] * v2[1],
 		v1[2] * v2[0] - v1[0] * v2[2],
 		v1[0] * v2[1] - v1[1] * v2[0]);
+}
+
+// Stream IO
+template<typename T, size_t count>
+static inline std::istream& operator>>(std::istream& istr, Vec<T, count>& v) {
+	for (T& el : v) {
+		istr >> el;
+	}
+
+	return istr;
+}
+
+template<typename T, size_t count>
+static inline std::ostream& operator<<(std::ostream& ostr, const Vec<T, count>& v) {
+	ostr << v[0];
+
+	for (auto iter = v.begin() + 1; iter < v.end(); iter++) {
+		ostr << ' ' << (*iter);
+	}
+
+	return ostr;
 }
 
 // typedefs for vectors that are likely to be used frequently

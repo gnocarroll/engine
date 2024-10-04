@@ -28,28 +28,28 @@ public:
 
 		return ret;
 	}
-
-	// Stream IO
-	template<typename T, size_t nRows, size_t nCols>
-	static inline friend std::istream& operator>>(std::istream& istr, Mat<T, nRows, nCols>& mat) {
-		for (auto& row : mat) {
-			istr >> row;
-		}
-
-		return istr;
-	}
-
-	template<typename T, size_t nRows, size_t nCols>
-	static inline friend std::ostream& operator<<(std::ostream& ostr, const Mat<T, nRows, nCols>& mat) {
-		ostr << mat[0];
-
-		for (auto iter = mat.begin() + 1; iter < mat.end(); iter++) {
-			ostr << '\n' << (*iter);
-		}
-
-		return ostr;
-	}
 };
+
+// Stream IO
+template<typename T, size_t nRows, size_t nCols>
+static inline std::istream& operator>>(std::istream& istr, Mat<T, nRows, nCols>& mat) {
+	for (auto& row : mat) {
+		istr >> row;
+	}
+
+	return istr;
+}
+
+template<typename T, size_t nRows, size_t nCols>
+static inline std::ostream& operator<<(std::ostream& ostr, const Mat<T, nRows, nCols>& mat) {
+	ostr << mat[0];
+
+	for (auto iter = mat.begin() + 1; iter < mat.end(); iter++) {
+		ostr << '\n' << (*iter);
+	}
+
+	return ostr;
+}
 
 typedef Mat<> M33;
 typedef Mat<float, 4> M44;
