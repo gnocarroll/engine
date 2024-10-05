@@ -39,6 +39,9 @@
     <ClCompile Include="engine\OS\Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\Time\DeltaT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\MyIntDef.hpp">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\Util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Time\DeltaT.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

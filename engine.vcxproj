@@ -132,12 +132,14 @@
     <ClCompile Include="engine\OS\Subsystem.cpp" />
     <ClCompile Include="engine\OS\Window.cpp" />
     <ClCompile Include="engine\Render\Render2D.cpp" />
+    <ClCompile Include="engine\Time\DeltaT.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\Math\Mat.hpp" />
     <ClInclude Include="engine\math\Utils.hpp" />
     <ClInclude Include="engine\math\Vec.hpp" />
     <ClInclude Include="engine\MyIntDef.hpp" />
+    <ClInclude Include="engine\Time\DeltaT.hpp" />
     <ClInclude Include="engine\Util.hpp" />
     <ClInclude Include="engine\OS\Events.hpp" />
     <ClInclude Include="engine\OS\Subsystem.hpp" />
