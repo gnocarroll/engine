@@ -14,6 +14,8 @@ namespace OS {
 				return SDL_INIT_AUDIO;
 			case Controller:
 				return SDL_INIT_GAMECONTROLLER;
+			case Timer:
+				return SDL_INIT_TIMER;
 			default:
 				break;
 			}
